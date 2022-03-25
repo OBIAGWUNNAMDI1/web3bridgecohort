@@ -1,13 +1,10 @@
-# Advanced Sample Hardhat Project
+# Staking contract that allow users to stake an erc20 BRRT token and get 10 percent of the stake after every 30 days, with a caveat that the interest is only added after 3days.
 
-This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.
+# This project demonstrates the use of various advanced Hardhat concept from integrating other tools commonly used alongside Hardhat in the ecosystem from ethers to using evmincreatime and account impersonation.
 
-The project comes with a sample contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts. It also comes with a variety of other tools, preconfigured to work with the project code.
-
-It shows how to use hardhat impersonate to impersonate an account, and using mainnet forking to get an archival state of an FTM mainnet.
-## mainnet forking;
-create an account with either alchemy or moralis.
-Decide on which network that you want to use to test or deploy the script
+# The project comes with a contract folder that has three solidity files, two scripts that deploys the erc20 contract, and the staking contract.
+```the scripts are ran on a forked ethereum mainnet instance in the local network host.
+```
 
 ```console
 npx hardhat --node fork "url"
@@ -15,7 +12,8 @@ npx hardhat --node fork "url"
 
 ## Deployment
 ```console 
-npx hardhat run scripts/main.ts --network localhost
+npx hardhat run scripts/mainAcc.ts --network localhost
+npx hardhat run scripts/staking.ts --network localhost
 
 
 

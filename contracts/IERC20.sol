@@ -1,11 +1,20 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity 0.8.4;
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-interface IERC20 {
 
-    event BalancedCheck(address owner , uint amount);
+contract Token is ERC20, Ownable {
+    uint256 initialSupply;
+   
 
-    function balanceOf(address account) external view returns (uint256);
+    constructor(uint256 _initialSupply) ERC20("BoredApe", "BRTT") {
+        initialSupply = _initialSupply;
+        _mint(msg.sender, initialSupply);
+    }
 
-    function transfer(address to, uint256 value) external view returns(uint256);
-}
+    function mint(address to, uint256 amount) public onlyOwner {
+        _mint(to, amount);
+    }
+    
+    }

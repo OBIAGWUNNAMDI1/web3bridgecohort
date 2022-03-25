@@ -7,6 +7,7 @@ import "@typechain/hardhat";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
 
+
 dotenv.config();
 
 // This is a sample Hardhat task. To learn how to create your own go to
@@ -25,15 +26,17 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 const config: HardhatUserConfig = {
   solidity: "0.8.4",
   networks: {
-    hardhat: {
-      forking: {
-        url: "https://speedy-nodes-nyc.moralis.io/547b0b8eeb13b6a929dfe7ed/fantom/mainnet",
-      }
-    },
-    ropsten: {
-      url: process.env.ROPSTEN_URL || "",
+    Rinkeby: {
+      url: process.env.RINKEBY_URL,
+      // url: 'https://rpc-mainnet.maticvigil.com/',
+
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+      //   // blockGasLimit: 20000000,
+      //   blockGasLimit: 20000000,
+      gas: 2100000,
+      gasPrice: 80000000000,
+      // timeout: 90000
     },
   },
   gasReporter: {

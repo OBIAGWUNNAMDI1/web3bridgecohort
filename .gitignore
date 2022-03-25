@@ -1,21 +1,27 @@
 node_modules
-.env.example
+.env
 coverage
 coverage.json
 typechain
 .npmignore
 .estlintrc.js
-eslintignore
+.eslintignore
 .prettierignore
 .prettierignore
 .prettierrc
 .solhint.json
 .solhintignore
 yarn-error.log
+nft.json
 
 deploy.ts
 index.ts
 Greeter.sol
+NFT.sol
+structconst.sol
+deploystruct.ts
+
+
 
 #Hardhat files
 cache
